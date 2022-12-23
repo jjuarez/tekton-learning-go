@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: minimalgo-ci-
+  generateName: tekton-learning-go-
 spec:
   pipelineRef:
     name: ci
@@ -11,11 +11,11 @@ spec:
     - name: git-revision
       value: main
     - name: git-url
-      value: https://github.com/jjuarez/minimal-go.git
+      value: https://github.com/jjuarez/tekton-learning-go.git
     - name: image
-      value: ghcr.io/jjuarez/minimal-go:latest
+      value: ghcr.io/jjuarez/tekton-learning-go:latest
     - name: repo-name
-      value: jjuarez/minimal-go
+      value: jjuarez/tekton-learning-go
     - name: git-commit-sha
       value: 
   workspaces:
