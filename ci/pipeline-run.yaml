@@ -1,0 +1,29 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: minimalgo-ci-
+spec:
+  pipelineRef:
+    name: ci
+  serviceAccountName: tekton-ci
+  params:
+    - name: git-revision
+      value: main
+    - name: git-url
+      value: https://github.com/jjuarez/minimal-go.git
+    - name: image
+      value: ghcr.io/jjuarez/minimal-go:latest
+    - name: repo-name
+      value: jjuarez/minimal-go
+    - name: git-commit-sha
+      value: 
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 5Gi
