@@ -13,7 +13,7 @@ PROJECT_MAIN      := $(shell find . -type f -name main.go)
 PROJECT_CHANGESET := $(shell git rev-parse --verify HEAD 2>/dev/null)
 
 DOCKER_REGISTRY           := ghcr.io
-DOCKER_REGISTRY_NAMESPACE := jjuarez
+DOCKER_REGISTRY_NAMESPACE := $(GITHUB_USERNAME)
 DOCKER_SERVICE_NAME       := tekton-learning-go
 
 PROJECT_MAIN  := $(shell find . -type f -name main.go)
